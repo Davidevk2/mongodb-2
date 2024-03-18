@@ -1,0 +1,16 @@
+db.usuarios.find();
+
+//Ejercicios actualizar
+db.usuarios.updateMany(
+    {},
+    {$set:  {salario: 29000}}
+    );
+
+db.usuarios.updateMany(
+    {},
+    {$unset:  {salario: ""}}
+    );
+
+
+// Ejercicios Eliminar 
+
