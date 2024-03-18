@@ -1,9 +1,10 @@
 db.usuarios.find();
+db.usuarios.find({ciudad:/^New/});
 
 //Ejercicios actualizar
 db.usuarios.updateMany(
     {},
-    {$set:  {salario: 29000}}
+    {$set:  {salario: 2900}}
     );
 
 db.usuarios.updateMany(
@@ -11,6 +12,64 @@ db.usuarios.updateMany(
     {$unset:  {salario: ""}}
     );
 
+
+db.usuarios.updateMany({},
+    {$mul:{salario: 1.10}}   );
+
+db.usuarios.updateMany(
+    {ciudad:"New York"},
+    {$set:{ciudad:"Los Angeles"}});
+
+
+db.usuarios.updateMany(
+    {nombres:"Juan", apellidos:"Perez"},
+    {$set :{ correo:"nuevo@riwi.io"}}
+    );
+
+db.usuarios.updateMany(
+    {corre: "ejemplo@riwi.es"},
+    {$set: {edad : 35}}
+ );
+
+db.usuarios.updateMany(
+    {pais:"Mexico"},
+    {$set: {pais:"Canada"}}
+);
+
+db.usuarios.updateMany(
+    {},
+    {$inc :{altura:5}}
+);
+
+db.usuarios.updateMany(
+    {correo:"ejemplo@riwi.net"},
+    {$set :{apellidos:"Gonzales"}}
+);
+
+db.usuarios.updateMany(
+    {nombres:"Pedro"},
+    {$set: {correo: "nuevo_correo@riwi.co"}}
+);
+
+db.usuarios.updateMany(
+    {edad: {$lt: 30}},
+    {$set: {edad: 30}}
+);
+
+db.usuarios.updateMany(
+    {ciudad:"Bogotá"},
+    {$set: {ciudad: "Medellín"}}
+);
+
+db.usuarios.updateMany(
+    {salario: {$gt:5000}},
+    {$set: {pais:"Australia"}}
+);
+
+db.usuarios.updateMany(
+    {edad: {$gt:50}},
+    {$inc: {edad: -5}}
+);
 
 // Ejercicios Eliminar 
 
